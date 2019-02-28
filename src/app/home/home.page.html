@@ -1,12 +1,28 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Personas
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button fill="solid" (click)="add()" color="secondary">
+        Agregar
+        <ion-icon slot="end" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-card *ngFor="let item of persons">
+    <ion-card-header>
+        <ion-card-title>{{item.name}}</ion-card-title>
+        <ion-card-subtitle>{{item.ocupation}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Edad:  {{item.age}} <br>
+        Genero:  {{item.gender}} <br>
+        Ciudad:  {{item.zone}} <br>
+      </ion-card-content>
+</ion-card>
 </ion-content>

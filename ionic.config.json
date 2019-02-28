@@ -1,5 +1,7 @@
 {
   "name": "ProyectoBlanco",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

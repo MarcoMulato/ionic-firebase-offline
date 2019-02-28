@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar class="cosa">
+    <ion-title >
+      Añade una nueva persona.
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="closeModal()"
+        defaultHref="home">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="back">
+  <form [formGroup]="listFormGroup">
+      <ion-item>
+        <ion-label >Nombre</ion-label>
+        <ion-input  type="text" formControlName="name" placeholder="Ingrese aqui.">
+        </ion-input>
+        <span  *ngIf="listFormGroup.get('name').touched && listFormGroup.get('name').hasError('required')">Campo requrido</span>
+      </ion-item>  
+      <ion-item>
+        <ion-label >Edad</ion-label>
+        <ion-input  type="number" formControlName="age" placeholder="Ingrese aqui.">
+        </ion-input>
+        <span  *ngIf="listFormGroup.get('age').touched && listFormGroup.get('age').hasError('required')">Campo requrido</span>
+      </ion-item>
+      <ion-item>
+        <ion-label >Genero</ion-label>
+        <ion-select value="Seleccione" formControlName="gender" okText="Aceptar" cancelText="Cancelar" >
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Femenino">Femenino</ion-select-option>
+          <ion-select-option value="Otro">Otro</ion-select-option>
+        </ion-select>
+        <span  *ngIf="listFormGroup.get('gender').touched && listFormGroup.get('gender').hasError('required')">Campo requrido</span>
+      </ion-item>
+      <ion-item>
+        <ion-label >Ocupacion</ion-label>
+        <ion-select value="Seleccione" formControlName="ocupation" okText="Aceptar" cancelText="Cancelar" >
+          <ion-select-option value="Empleado">Empleado</ion-select-option>
+          <ion-select-option value="Desempleado">Desempleado</ion-select-option>
+          <ion-select-option value="Estudiante">Estudiante</ion-select-option>
+          <span  *ngIf="listFormGroup.get('ocupation').touched && listFormGroup.get('ocupation').hasError('required')">Campo requrido</span>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label >Ciudad</ion-label>
+        <ion-select value="Seleccione" formControlName="zone" okText="Aceptar" cancelText="Cancelar" >
+          <ion-select-option value="Tuxtla Gutiérrez">Tuxtla Gutiérrez</ion-select-option>
+          <ion-select-option value="Tapachula">Tapachula</ion-select-option>
+          <ion-select-option value="Chiapa de Corzo">Chiapa de Corzo</ion-select-option>
+          <ion-select-option value="Suchiapa">Suchiapa</ion-select-option>
+          <ion-select-option value="San Cristobal de las Casas">San Cristobal de las Casas</ion-select-option>
+          <span  *ngIf="listFormGroup.get('zone').touched && listFormGroup.get('zone').hasError('required')">Campo requrido</span>
+        </ion-select>
+      </ion-item>
+      <br>
+        <ion-button type="button" (click)="add()" [disabled]="listFormGroup.invalid">Guardar</ion-button>
+  
+  </form>
+</ion-content>
